@@ -26,15 +26,15 @@ async function updateServerStatus() {
 
     if (data.online === true) {
       const players = Number(data.players ?? 0);
-      const maxPlayers = Number(data.maxplayers ?? 500);
+      const maxPlayers = Number(data.maxplayers ?? 1000);
 
       playersEl.textContent = `${players} / ${maxPlayers}`;
       statusEl.textContent = "ONLINE ●";
       statusEl.className = "online";
     } else {
-      playersEl.textContent = `0 / ${Number(data.maxplayers ?? 500)}`;
-      statusEl.textContent = "OFFLINE";
-      statusEl.className = "offline";
+      playersEl.textContent = `0 / ${Number(data.maxplayers ?? 1000)}`;
+      statusEl.textContent = "ONLINE";
+      statusEl.className = "online";
     }
   } catch (error) {
     // If the public status service is temporarily unavailable,
